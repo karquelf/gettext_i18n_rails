@@ -1,7 +1,7 @@
 module ActiveModel
   Name.class_eval do
     def human(options={})
-      human_name = @klass.humanize_class_name
+      human_name = @klass.class.name.delete(":")
 
       if count = options[:count]
         n_(human_name, human_name.pluralize, count)
